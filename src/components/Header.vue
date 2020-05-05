@@ -1,9 +1,11 @@
 <template>
     <div class="page-header">
       <div class="logo-container">
-        <a href="#"></a>
+        <a href="" @click="stopClick"></a>
       </div>
-      <form class="search-container">
+      <form class="search-container"
+      :class="{ scroll: isIphone}"
+      >
         <input type="text" class="searchTerm" placeholder="What are you looking for?">
         <button type="submit" class="searchButton">search</button>      
       </form>   
@@ -11,6 +13,10 @@
 </template>
 
 <style lang="scss">
+.scroll{
+       margin-left: 50px !important;
+    }
+
   .page-header{
     max-width: 100%;
     height: 80px;
@@ -24,6 +30,10 @@
       height: 50px;
       flex:0 0 100px;
       padding: 0 20px;
+
+      @media screen and (max-width: 450px){
+        padding: 0;
+      }
       
       a {
         background: url("../assets/mnet_logo.jpg") no-repeat;
@@ -40,6 +50,10 @@
     /* width: 100%; */
     flex: 1 1 auto;
     margin-left: 150px;
+
+    @media screen and (max-width: 700px){ 
+        margin-left: 0;
+    }
   }
 
   .searchTerm {
@@ -52,6 +66,19 @@
     border-radius: 5px 0 0 5px;
     outline: none;
     color: #9DBFAF;
+
+    @media screen and (max-width: 500px){ 
+      flex: 1;
+    }
+  }
+
+  .scroll{
+    .searchTerm{
+      @media screen and (max-width: 500px){ 
+        flex: 0 0 80%;
+      } 
+    }
+
   }
 
   .searchTerm:focus{
@@ -68,6 +95,16 @@
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     font-size: 20px;
+
+    @media screen and (max-width: 500px){ 
+      flex: 0 0 100px;
+    }
+
+    
+    @media screen and (max-width: 400px){ 
+      flex: 0 0 50px;
+      font-size: 12px;
+    }
   }
 
 }
@@ -76,6 +113,19 @@
 <script>
 
 export default {
-  name: "Header"
+  name: "Header",
+  computed: {
+    isIphone: function(){
+      var ios =   /iPhone/.test(navigator.userAgent) && 
+                !window.MSStream;
+      console.log(ios);
+      return ios;
+    }
+  },
+  methods:{
+    stopClick(event){
+      event.preventDefault();
+    }
+  }
 };
 </script>

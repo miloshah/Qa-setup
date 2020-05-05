@@ -1,7 +1,7 @@
 <template>
     <div class="feature-wrapper">
         <div class="image-wrapper">
-            <span class="media-credit">&copy;Paul Drinkwater/NBC/Getty Images; Alice S. Hall/NBC/Getty Images; Terry O'Neill/Terry O'Neill/Terry O'Neill/</span>
+            <span class="media-credit" v-if="!isFireFox">&copy;Paul Drinkwater/NBC/Getty Images; Alice S. Hall/NBC/Getty Images; Terry O'Neill/Terry O'Neill/Terry O'Neill/</span>
         </div>
         <div class="title-wrapper">
             <div class="content">
@@ -16,8 +16,9 @@
 <style lang="scss">
 
 .feature-wrapper{
-    height: calc(100vh - 82px);
+    height: calc(100vh - 126px);
     display: flex;
+    margin-bottom: 30px;
 
     .image-wrapper{
         flex:1;
@@ -32,8 +33,14 @@
             position: absolute;
             bottom: 0;
             left:0;
+            right:0;
             color: azure;
             text-align: center;
+            font-size: 10px;
+
+            @media screen and (max-width: 600px){
+                font-size: 7px;
+            }
         }
     }
 
@@ -44,7 +51,11 @@
         align-items: center;
         
         .content{
-             padding: 0 20px;
+            padding: 0 20px;
+
+            @media screen and (max-width: 500px){
+                font-size: 12px;
+            }
         }
     }
 }
@@ -53,6 +64,11 @@
 
 <script>
 export default {
-    name:"FeatureImage"
+    name:"FeatureImage",
+    computed:{
+        isFireFox: function(){
+            return window.isFireFox;
+        }
+    }
 }
 </script>
