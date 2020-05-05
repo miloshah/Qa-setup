@@ -32,7 +32,8 @@
       padding: 0 20px;
 
       @media screen and (max-width: 450px){
-        padding: 0;
+        padding: 0 5px 0 0;
+        flex:0 0 80px;
       }
       
       a {
@@ -51,7 +52,7 @@
     flex: 1 1 auto;
     margin-left: 150px;
 
-    @media screen and (max-width: 700px){ 
+    @media screen and (max-width: 800px){ 
         margin-left: 0;
     }
   }
