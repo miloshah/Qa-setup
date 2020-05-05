@@ -5,6 +5,7 @@
       </div>
       <form class="search-container"
       :class="{ scroll: isIphone}"
+      v-on:submit.prevent
       >
         <input type="text" class="searchTerm" placeholder="What are you looking for?">
         <button type="submit" class="searchButton">search</button>      
