@@ -4,11 +4,8 @@
         <SocialShare></SocialShare>
         <FeatureImage></FeatureImage>
         <div class="content-wrapper">
-            <div class="container">
-            <WebElements></WebElements>
-            <WebElements></WebElements>
-            <WebElements></WebElements>
-            <WebElements></WebElements>
+            <div class="container" >
+            <WebElements :elemdata="foodItem" v-for="(foodItem,i) in foodItems" :key="i"></WebElements>
             </div>
             <div class="content-desc">
                 <p>Food is an important factor of life that fuels every individual across the globe. Everyday, millions of Canadians across the country consume large quantities of food without acknowledging where this food was grown and processed. Individuals think they are purchasing freshly grown vegetables and fruits at the grocery store, however a large portion of the foods sold are exported from different countries. Unknowingly, the consumer buys exported foods that have been stocked up with preservatives too keep it fresh through out transportation. It is important for Canadians to be aware of where their fruits and vegetables are being grown and sent from so they can know how many preservatives have been added to keep them fresh. A lot of these additives have the ability to compromise the body’s structure and function and can cause serious harm.</p>
@@ -63,5 +60,32 @@ export default {
     WebElements,
     Footer
   },
+  data: function(){
+      return{
+          foodItems : [
+              {
+                id: 1,
+                title:"Indian Food",
+                imgPath:"1.jpg"
+              },
+              {
+                id: 2,
+                title:"Pulav",
+                imgPath:"2.jpg"
+              },
+              {
+                id: 3,
+                title:"Pulav",
+                imgPath:"3.jpg"
+              },
+              {
+                id: 4,
+                title:"Pulav",
+                imgPath:"4.jpg"
+              },
+
+          ],
+      }
+  }
 };
 </script>

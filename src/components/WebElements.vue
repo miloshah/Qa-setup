@@ -4,8 +4,9 @@
             @mouseover="hover = true"
             @mouseleave="hover = false"
             :class="{ active: hover}"
-        >
-         <h2 class="heading">Food Item</h2>
+            :style="[backgroundImg]"
+            >
+         <h2 class="heading">{{elemdata.title}}</h2>
         </div>
     </div>
 </template>
@@ -35,10 +36,10 @@
     .element-content{
         opacity: 0.7;
         height: 100%;
-        background: url("../assets/1.jpg") no-repeat;
-        background-color: #efefef;
+        // background: url("../assets/1.jpg") no-repeat;
+        // background-color: #efefef;
         background-size: cover;
-        background-position: 50%;
+        // background-position: 50%;
 
         .heading{
             text-align: center;
@@ -58,12 +59,21 @@
 </style>
 
 <script>
+// @import "../assets/"
 export default {
     name:"WebElements",
     data: function(){
         return{
             hover: false,
+            backgroundImg:{
+                background: 'url(' + require('../assets/'+this.elemdata.imgPath) + ')',
+                backgroundRepeat: 'no-repeat',
+                backgroundColor: '#efefef',
+                backgroundSize: 'cover',
+                backgroundPosition: '50%'
+            }
         }
-    }
+    },
+    props: ['elemdata'],
 }
 </script>
