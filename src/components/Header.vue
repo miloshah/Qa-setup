@@ -120,6 +120,7 @@ export default {
     isIphone: function(){
       var ios =   /iPhone/.test(navigator.userAgent) && 
                 !window.MSStream;
+      console.log(ios);
       return ios;
     }
   },

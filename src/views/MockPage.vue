@@ -18,28 +18,23 @@
 
 <style lang="scss">
     .content-wrapper{
-        padding:0 20px;
+        // padding:0 20px;
 
         @media screen and (max-width: 500px){
                 font-size: 12px;
             }
 
         .container{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-
-        .web-elem-wrapper{
-            &:first-child{
-                margin-left: 0;
-            }
-
-            &:last-child{
-                margin-right: 0;
-            }
-        }
-    }
+            padding-left: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+       }   
+       
+       .content-desc{
+           padding:0 20px;
+       }
     }
 
 </style>
@@ -83,6 +78,26 @@ export default {
                 title:"Pulav",
                 imgPath:"4.jpg"
               },
+            //    {
+            //     id: 4,
+            //     title:"Pulav",
+            //     imgPath:"4.jpg"
+            //   },
+            //    {
+            //     id: 4,
+            //     title:"Pulav",
+            //     imgPath:"4.jpg"
+            //   },
+            //    {
+            //     id: 4,
+            //     title:"Pulav",
+            //     imgPath:"4.jpg"
+            //   },
+            //    {
+            //     id: 4,
+            //     title:"Pulav",
+            //     imgPath:"4.jpg"
+            //   },
 
           ],
       }
